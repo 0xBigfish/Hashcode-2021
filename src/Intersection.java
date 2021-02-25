@@ -4,6 +4,7 @@ public class Intersection {
     private int id;
     private ArrayList<Street> inStreets;
     private ArrayList<Street> outStreets;
+    private ArrayList<Car> queue;
 
     public int getId() {
         return id;
@@ -29,4 +30,12 @@ public class Intersection {
         this.outStreets = outStreets;
     }
 
+
+    public ArrayList<Car> getQueue() {
+        return queue;
+    }
+
+    public void setQueue(ArrayList<Car> queue) {
+        this.queue = queue;
+    }
 }

@@ -10,6 +10,12 @@ public class Algorithm {
                    Integer score,
                    ArrayList<Street> streets,
                    ArrayList<Car> cars){
+        createIntersections(numberOfIntersections, streets);
+        //TODO: autos anlegen
+
+    }
+
+    private void createIntersections(Integer numberOfIntersections, ArrayList<Street> streets) {
         for(Integer i = 0; i < numberOfIntersections; i++){
             Intersection intersection = new Intersection();
             intersection.setId(i);
@@ -41,8 +47,6 @@ public class Algorithm {
             intersection.getOutStreets().forEach(out -> {
                 System.out.print(out.getName() + " ");
             });
-
         });
-
     }
 }
