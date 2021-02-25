@@ -27,6 +27,7 @@ public class InitializeIntersections {
                 for(int i = 0; i < intersection.getInStreets().size(); i++){
                     if(intersection.getInStreets().get(i).getId().equals(onStreet.getId())){
                         intersection.getTrafficLights().set(i, true);
+                        intersection.getGreenTime().set(i,2);
                     }
                 }
 
