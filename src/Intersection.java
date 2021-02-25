@@ -5,6 +5,7 @@ public class Intersection {
     private ArrayList<Street> inStreets;
     private ArrayList<Street> outStreets;
     private ArrayList<Car> queue = new ArrayList<>();
+    private ArrayList<Boolean> trafficLights;
 
     public int getId() {
         return id;
@@ -37,5 +38,13 @@ public class Intersection {
 
     public void setQueue(ArrayList<Car> queue) {
         this.queue = queue;
+    }
+
+    public ArrayList<Boolean> getTrafficLights() {
+        return trafficLights;
+    }
+
+    public void setTrafficLights(ArrayList<Boolean> trafficLights) {
+        this.trafficLights = trafficLights;
     }
 }

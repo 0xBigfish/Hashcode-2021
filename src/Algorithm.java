@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.util.ArrayList;
 
 public class Algorithm {
@@ -11,8 +12,8 @@ public class Algorithm {
                    ArrayList<Street> streets,
                    ArrayList<Car> cars){
         createIntersections(numberOfIntersections, streets);
-        //TODO: autos anlegen
-
+        spawnCars(cars);
+        debug();
     }
 
     private void createIntersections(Integer numberOfIntersections, ArrayList<Street> streets) {
@@ -36,6 +37,20 @@ public class Algorithm {
             intersection.setInStreets(inStreets);
             intersections.add(intersection);
         }
+    }
+
+    private void spawnCars(ArrayList<Car> cars) {
+        cars.forEach(car -> {
+            Street start = car.getPath().get(0);
+            intersections.forEach(intersection -> {
+                if(intersection.getId() == start.getEndIntersection()){
+                    intersection.getQueue().add(car);
+                }
+            });
+        });
+    }
+
+    private void debug() {
         System.out.println("Intersections");
         intersections.forEach(intersection -> {
             System.out.println("\nIntersection: " + intersection.getId());
@@ -47,6 +62,11 @@ public class Algorithm {
             intersection.getOutStreets().forEach(out -> {
                 System.out.print(out.getName() + " ");
             });
+            System.out.print("\nCars in queue: ");
+            intersection.getQueue()
+                    .stream()
+                    .map(Car::getId)
+                    .forEach(System.out::print);
         });
     }
 }
