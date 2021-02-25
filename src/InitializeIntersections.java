@@ -1,7 +1,7 @@
 import java.awt.*;
 import java.util.ArrayList;
 
-public class Algorithm {
+public class InitializeIntersections {
 
     private ArrayList<Intersection> intersections = new ArrayList<>();
 
