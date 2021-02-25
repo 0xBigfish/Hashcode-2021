@@ -4,7 +4,7 @@ public class Intersection {
     private int id;
     private ArrayList<Street> inStreets;
     private ArrayList<Street> outStreets;
-    private ArrayList<Car> queue;
+    private ArrayList<Car> queue = new ArrayList<>();
 
     public int getId() {
         return id;
