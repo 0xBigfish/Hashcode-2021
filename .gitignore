@@ -36,7 +36,6 @@
  .idea/modules.xml
  .idea/*.iml
  .idea/modules
- *.iml
  *.ipr
 
 # CMake
@@ -99,3 +98,4 @@ hs_err_pid*
 
 
 *.xml
+*.iml
