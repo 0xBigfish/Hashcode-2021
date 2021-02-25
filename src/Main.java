@@ -4,7 +4,7 @@ import java.io.IOException;
 public class Main {
 
     public static void main(String[] args) {
-        File example = new File("src/resources/a.txt");
+        File example = new File("src/resources/b.txt");
         ScanFile scanner = new ScanFile();
         scanner.read(example);
     }

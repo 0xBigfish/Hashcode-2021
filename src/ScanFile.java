@@ -17,6 +17,8 @@ public class ScanFile {
             readFirstLine(br);
             readStreets(br);
             readCars(br);
+            Algorithm alg = new Algorithm();
+            alg.go(totalSimulationTime, intersections, numberOfStreets, score, streets, cars);
         } catch (IOException e) {
             e.printStackTrace();
         }
