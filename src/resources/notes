@@ -9,4 +9,4 @@ Notizen:
 
     - Formel für die Reisezeit eines Autos das über N Straßen fährt:
 
-        sum über N von n_i + wartezeit(n_i)+1 - wartezeit(n_n) // die letzte Kreuzung muss nicht mehr überfahren werden
+        sum über N von n_i + wartezeit(t, n_i) + 1 - wartezeit(t, n_n) // die letzte Kreuzung muss nicht mehr überfahren werden

@@ -1,4 +1,3 @@
-import java.awt.*;
 import java.util.ArrayList;
 
 public class InitializeIntersections {
@@ -15,7 +14,7 @@ public class InitializeIntersections {
         spawnCars(cars);
         activateTrafficLights();
         Algorithm alg = new Algorithm();
-//        alg.move(totalSimulationTime, numberOfIntersections, numberOfStreets, score, streets, cars);
+        alg.move(totalSimulationTime, numberOfIntersections, numberOfStreets, score, streets, intersections, cars);
         debug();
     }
 
@@ -27,7 +26,7 @@ public class InitializeIntersections {
                 for(int i = 0; i < intersection.getInStreets().size(); i++){
                     if(intersection.getInStreets().get(i).getId().equals(onStreet.getId())){
                         intersection.getTrafficLights().set(i, true);
-                        intersection.getGreenTime().set(i,2);
+                        intersection.getGreenTimeForEachLight().set(i,2);
                     }
                 }
 
@@ -88,6 +87,12 @@ public class InitializeIntersections {
                     .forEach(System.out::print);
             System.out.print("\nTraffic lights: ");
             intersection.getTrafficLights()
+                    .forEach(t -> {
+                        System.out.print(t + " ");
+                    });
+
+            System.out.println("\nEach Lights green time: ");
+            intersection.getGreenTimeForEachLight()
                     .forEach(t -> {
                         System.out.print(t + " ");
                     });

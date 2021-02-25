@@ -6,7 +6,7 @@ public class Intersection {
     private ArrayList<Street> outStreets;
     private ArrayList<Car> queue = new ArrayList<>();
     private ArrayList<Boolean> trafficLights = new ArrayList<>();
-    private ArrayList<Integer> greenTime = new ArrayList<>();
+    private ArrayList<Integer> greenTimeForEachLight = new ArrayList<>();
     
     public Intersection() {
 
@@ -49,7 +49,7 @@ public class Intersection {
         });
 
         inStreets.forEach(s -> {
-            greenTime.add(0);
+            greenTimeForEachLight.add(0);
         });
     }
 
@@ -78,9 +78,9 @@ public class Intersection {
         this.trafficLights = trafficLights;
     }
 
-    public int getGreenTime() {
+    public ArrayList<Integer> getGreenTimeForEachLight() {
 
-        return greenTime;
+        return greenTimeForEachLight;
     }
 
 }
