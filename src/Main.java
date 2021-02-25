@@ -7,5 +7,7 @@ public class Main {
         System.out.println("test");
         File example = new File("src/resources/TODO.todo");
         System.out.println(example.getName());
+        ScanFile scanner = new ScanFile();
+        scanner.read(example);
     }
 }
