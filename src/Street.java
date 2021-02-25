@@ -1,9 +1,12 @@
+import java.util.ArrayList;
+
 public class Street {
     private Integer id;
     private Integer startIntersection;
     private Integer endIntersection;
     private String name;
     private Integer streetLength;
+    private ArrayList<Car> positions;
 
     public Street(Integer id, Integer startIntersection, Integer endIntersection, String name, Integer streetLength) {
         this.id = id;
@@ -51,5 +54,13 @@ public class Street {
 
     public void setStreetLength(Integer streetLength) {
         this.streetLength = streetLength;
+    }
+
+    public ArrayList<Car> getPositions() {
+        return positions;
+    }
+
+    public void setPositions(ArrayList<Car> positions) {
+        this.positions = positions;
     }
 }
