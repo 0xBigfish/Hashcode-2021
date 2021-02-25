@@ -13,7 +13,25 @@ public class InitializeIntersections {
                    ArrayList<Car> cars){
         createIntersections(numberOfIntersections, streets);
         spawnCars(cars);
+        activateTrafficLights();
+        Algorithm alg = new Algorithm();
+//        alg.move(totalSimulationTime, numberOfIntersections, numberOfStreets, score, streets, cars);
         debug();
+    }
+
+    private void activateTrafficLights() {
+        intersections.forEach(intersection -> {
+            if (intersection.getQueue().size() > 0){
+                Car firstCar = intersection.getQueue().get(0);
+                Street onStreet = firstCar.getPath().get(0);
+                for(int i = 0; i < intersection.getInStreets().size(); i++){
+                    if(intersection.getInStreets().get(i).getId().equals(onStreet.getId())){
+                        intersection.getTrafficLights().set(i, true);
+                    }
+                }
+
+            }
+        } );
     }
 
     private void createIntersections(Integer numberOfIntersections, ArrayList<Street> streets) {
@@ -67,6 +85,11 @@ public class InitializeIntersections {
                     .stream()
                     .map(Car::getId)
                     .forEach(System.out::print);
+            System.out.print("\nTraffic lights: ");
+            intersection.getTrafficLights()
+                    .forEach(t -> {
+                        System.out.print(t + " ");
+                    });
         });
     }
 }

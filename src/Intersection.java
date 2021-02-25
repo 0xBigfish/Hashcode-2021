@@ -5,7 +5,25 @@ public class Intersection {
     private ArrayList<Street> inStreets;
     private ArrayList<Street> outStreets;
     private ArrayList<Car> queue = new ArrayList<>();
-    private ArrayList<Boolean> trafficLights;
+    private ArrayList<Boolean> trafficLights = new ArrayList<>();
+
+    public Intersection() {
+
+    }
+
+
+    public boolean isGreen(){
+        return trafficLights.contains(true);
+    }
+
+    public Street getGreenLight(){
+        for(int i = 0; i < trafficLights.size(); i++){
+            if(trafficLights.get(i)){
+                return inStreets.get(i);
+            }
+        }
+        return null;
+    }
 
     public int getId() {
         return id;
@@ -21,6 +39,13 @@ public class Intersection {
 
     public void setInStreets(ArrayList<Street> inStreets) {
         this.inStreets = inStreets;
+        initializeTrafficLights(inStreets);
+    }
+
+    private void initializeTrafficLights(ArrayList<Street> inStreets) {
+        inStreets.forEach(s -> {
+            trafficLights.add(false);
+        });
     }
 
     public ArrayList<Street> getOutStreets() {
