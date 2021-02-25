@@ -1,0 +1,12 @@
+Notizen:
+
+    - Knoten mit nur einer eingehenden Kante werden immer auf Grün gestellt
+
+    - Straßen die gar nicht oder NUR als End-Straße vorkommen, sind an ihrem Ende immer auf Rot gestellt
+        - Die Autos müssen die Kreuzung ja nicht mehr überfahren, da sie an ihrer Zielstraße angekommen sind.
+
+    - Priorisiere Straßen, die von den schnellsten x % der Autos am meisten benutzt werden.
+
+    - Formel für die Reisezeit eines Autos das über N Straßen fährt:
+
+        sum über N von n_i + wartezeit(n_i)+1 - wartezeit(n_n) // die letzte Kreuzung muss nicht mehr überfahren werden
