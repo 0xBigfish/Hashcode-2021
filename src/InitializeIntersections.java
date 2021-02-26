@@ -1,8 +1,17 @@
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class InitializeIntersections {
 
     private ArrayList<Intersection> intersections = new ArrayList<>();
+
+    private File file;
+
+    public InitializeIntersections(File file) {
+        this.file = file;
+    }
+
 
     public void go(Integer totalSimulationTime,
                    Integer numberOfIntersections,
@@ -13,9 +22,15 @@ public class InitializeIntersections {
         createIntersections(numberOfIntersections, streets);
         spawnCars(cars);
         activateTrafficLights();
-        Algorithm alg = new Algorithm();
-        alg.move(totalSimulationTime, numberOfIntersections, numberOfStreets, score, streets, intersections, cars);
-        debug();
+        //Algorithm alg = new Algorithm();
+        //alg.move(totalSimulationTime, numberOfIntersections, numberOfStreets, score, streets, intersections, cars);
+        SimpleSolution s = new SimpleSolution(file);
+        try {
+            s.go(intersections);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+//        debug();
     }
 
     private void activateTrafficLights() {

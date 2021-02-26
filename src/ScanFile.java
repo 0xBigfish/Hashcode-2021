@@ -17,7 +17,7 @@ public class ScanFile {
             readFirstLine(br);
             readStreets(br);
             readCars(br);
-            InitializeIntersections alg = new InitializeIntersections();
+            InitializeIntersections alg = new InitializeIntersections(file);
             alg.go(totalSimulationTime, intersections, numberOfStreets, score, streets, cars);
         } catch (IOException e) {
             e.printStackTrace();
@@ -51,10 +51,10 @@ public class ScanFile {
             );
             streets.add(street);
         }
-        System.out.println("\nStreets: ");
-        streets.forEach(s -> {
-            System.out.println(s.getName());
-        });
+        //System.out.println("\nStreets: ");
+        //streets.forEach(s -> {
+        //    System.out.println(s.getName());
+        //});
     }
 
     private void readCars(BufferedReader br) throws IOException {
@@ -79,12 +79,12 @@ public class ScanFile {
             car.setPath(path);
             cars.add(car);
         }
-        cars.forEach(car -> {
-            System.out.println("\nCar: " + car.getId());
-            car.getPath().forEach(street -> {
-                System.out.println("Street -> id: " + street.getId() + " name: " + street.getName());
-            });
-        });
+        //cars.forEach(car -> {
+        //    System.out.println("\nCar: " + car.getId());
+        //    car.getPath().forEach(street -> {
+        //        System.out.println("Street -> id: " + street.getId() + " name: " + street.getName());
+        //    });
+        //});
 
     }
 }
